@@ -105,13 +105,12 @@ function Game() {
   useEffect(() => {
     if (!started || gameOver) return;
 
- let rafId;
-let lastTime = performance.now();
 
-const loop = (time) => {
-  lastTime = time;
+    let rafId;
 
+const loop = () => {
   const currentSpeed = speedRef.current;
+
 
       let nextObstacles = [];
       let nextCoins = [];
