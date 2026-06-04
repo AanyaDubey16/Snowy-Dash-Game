@@ -107,12 +107,12 @@ function Game() {
 
     let rafId;
     let lastTime = performance.now();
-    let spawnTimer = 0;
+    
 
     const loop = (time) => {
       const delta = time - lastTime;
       lastTime = time;
-      spawnTimer += delta;
+    
 
       const currentSpeed = speedRef.current;
 
