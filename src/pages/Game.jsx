@@ -105,16 +105,13 @@ function Game() {
   useEffect(() => {
     if (!started || gameOver) return;
 
-    let rafId;
-    let lastTime = performance.now();
-    
+ let rafId;
+let lastTime = performance.now();
 
-    const loop = (time) => {
-      const delta = time - lastTime;
-      lastTime = time;
-    
+const loop = (time) => {
+  lastTime = time;
 
-      const currentSpeed = speedRef.current;
+  const currentSpeed = speedRef.current;
 
       let nextObstacles = [];
       let nextCoins = [];
@@ -139,8 +136,7 @@ function Game() {
       const currentLane = laneRef.current;
       const isJumping = jumpingRef.current;
 
-      const obstacleCollision = obstaclesRef.current.some(obs =>
-        obs.lane === currentLane &&
+      const obstacleCollision = obstaclesRef.current.some(obs => obs.lane === currentLane &&
         obs.y > 600 &&
         obs.y < 710 &&
         !isJumping
@@ -153,8 +149,7 @@ function Game() {
       }
 
       if (!hit) {
-        const collectedCoins = coinsRef.current.filter(coin =>
-          coin.lane === currentLane &&
+        const collectedCoins = coinsRef.current.filter(coin => coin.lane === currentLane &&
           coin.y > 600 &&
           coin.y < 710
         );
@@ -188,7 +183,7 @@ function Game() {
       });
 
       rafId = requestAnimationFrame(loop);
-    };
+    }
 
     rafId = requestAnimationFrame(loop);
 
